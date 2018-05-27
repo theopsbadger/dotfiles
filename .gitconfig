@@ -1,0 +1,48 @@
+[core]
+  editor = vim
+  excludesfile = ~/.gitignore_global
+
+[user]
+  name = Andrew J Warren
+  email = andrew.j.warren@oracle.com
+  username = ajwarren
+
+[color]
+  ui = true
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = red
+
+[alias]
+  co = checkout
+  cob = checkout -b
+  st = status
+  br = branch
+
+  prune = fetch --prune
+  # Because I constantly forget how to do this
+  # https://git-scm.com/docs/git-fetch#git-fetch--p
+
+  undo = reset --soft HEAD^
+  # Not quite as common as an amend, but still common
+  # https://git-scm.com/docs/git-reset#git-reset-emgitresetemltmodegtltcommitgt
+
+  stash-all = stash save --include-untracked
+  # We wanna grab those pesky un-added files!
+  # https://git-scm.com/docs/git-stash
+
+  ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+
