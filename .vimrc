@@ -19,7 +19,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim'
+Plug 'dylanaraps/wal.vim'
 call plug#end()
 
 " General settings
@@ -48,10 +49,13 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
 " Jedi settings
-let g:jedi#use_splits_not_buffers='right'
+" let g:jedi#use_splits_not_buffers='right'
 
 " Encoding
 set encoding=utf-8
+
+" Color
+" colorscheme wal
 
 " Numbers
 set number
@@ -98,7 +102,7 @@ au BufNewFile,BufRead *.py;
     \ set expandtab |
     \ set autoindent nosmartindent |
     \ set fileformat=unix |
-"    \ set colorcolumn=+1 |
+    \ set colorcolumn=80 |
     \ set encoding=utf-8 |
 "    \ highlight ColorColumn ctermbg=5 |
     \ syntax on

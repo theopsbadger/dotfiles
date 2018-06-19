@@ -1,0 +1,24 @@
+# plan-service proxy variable
+export PLAN_SERVICE_PROXY=1
+
+# ARTIFACTORY TWINE CA
+export TWINE_CERT=/etc/ssl/certs/LGL-root-CA.pem
+
+# OpenSC Yubikey
+export OPENSC=/usr/lib64/opensc-pkcs11.so
+
+# User OCIDS
+export R1_OCID=ocid1.user.region1..aaaaaaaaur6gkncfk7bluazse56dcspgafoad3ftpkts2b7fibxh7dtaw47q
+export OC1_OCID=ocid1.user.oc1..aaaaaaaaigtwcqjhdgggolztbsrimhtf5iewpj6clqj74xpagghz7lhzlsua
+
+# pic-tools
+#source /home/ajwarren/Documents/work/.work_scripts/pic-tools/scripts/*.env
+
+## pic-tools
+source /home/ajwarren/Projects/work/pic-tools/scripts/*.env
+
+# work dir
+export WORK=$HOME/Projects/work
+
+# autonet
+alias autonet="cd $WORK/autonet"
