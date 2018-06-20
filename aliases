@@ -1,7 +1,16 @@
 # LS Color
-alias ll="ls -lhaF --color=auto"
-alias la="ls -A --color=auto"
-alias l="ls -CF --color=auto"
+case "$(uname)" in
+    Darwin)
+        alias ll="ls -lhaFG"
+        alias la="ls -AG"
+        alias l="ls -CFG"
+        ;;
+    Linux)
+        alias ll="ls -lhaF --color=auto"
+        alias la="ls -A --color=auto"
+        alias l="ls -CF --color=auto"
+        ;;
+esac
 
 # Dir
 #alias dir='dir --color=auto'
@@ -23,7 +32,6 @@ alias vpn="/opt/cisco/anyconnect/bin/vpn"
 alias ocna='vpn connect sea'
 
 # Directories
-alias work="cd $HOME/Projects/work"
 alias dl="cd $HOME/Downloads"
 alias dotfiles="cd $HOME/dotfiles"
 

@@ -39,16 +39,17 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-if [ -f ~/.work ]; then
-    . ~/.work
-fi
+#if [ -f ~/.work ]; then
+#    . ~/.work
+#fi
 
 # Add work related stuff
 # https://github.com/mathiasbynens/dotfiles/blob/master/.bash_profile
-#for file in ~/.{work}; do
-#	[ -r "$file" ] && [ -f "$file" ] && source "$file";
-#done;
-#unset file;
+
+for file in ~/.{aliases,work}; do
+    [ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -62,7 +63,7 @@ if ! shopt -oq posix; then
 fi
 
 # added by Miniconda3 installer
-export PATH="/home/ajwarren/miniconda3/bin:$PATH"
+export PATH="$HOME/miniconda3/bin:$PATH"
 
 # Prompt
 RCol='\033[0m'
@@ -73,4 +74,4 @@ Yel='\033[33m';
 PS1="${RCol}┌─[\`if [ \$? = 0 ]; then echo "${Gre}"; else echo "${Red}"; fi\`\t\[${Rcol}\] \[${Blu}\]\h\[${RCol}\] \[${Yel}\]\w\[${RCol}\]]\n└─╼ "
 
 # PyWal setting 
-(cat ~/.cache/wal/sequences &)
+#(cat ~/.cache/wal/sequences &)

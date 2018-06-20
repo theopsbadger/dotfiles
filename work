@@ -11,14 +11,12 @@ export OPENSC=/usr/lib64/opensc-pkcs11.so
 export R1_OCID=ocid1.user.region1..aaaaaaaaur6gkncfk7bluazse56dcspgafoad3ftpkts2b7fibxh7dtaw47q
 export OC1_OCID=ocid1.user.oc1..aaaaaaaaigtwcqjhdgggolztbsrimhtf5iewpj6clqj74xpagghz7lhzlsua
 
-# pic-tools
-#source /home/ajwarren/Documents/work/.work_scripts/pic-tools/scripts/*.env
-
-## pic-tools
-source /home/ajwarren/Projects/work/pic-tools/scripts/*.env
-
 # work dir
 export WORK=$HOME/Projects/work
+alias work="cd $WORK"
+
+## pic-tools
+source $WORK/pic-tools/scripts/*.env
 
 # autonet
 alias autonet="cd $WORK/autonet"
