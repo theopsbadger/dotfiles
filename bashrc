@@ -65,6 +65,12 @@ fi
 # added by Miniconda3 installer
 export PATH="$HOME/miniconda3/bin:$PATH"
 
+# golang
+export GOPATH="$HOME/Go"
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
+
 # Prompt
 RCol='\033[0m'
 Gre='\033[32m';
