@@ -5,7 +5,15 @@ export PLAN_SERVICE_PROXY=1
 export TWINE_CERT=/etc/ssl/certs/LGL-root-CA.pem
 
 # OpenSC Yubikey
-export OPENSC=/usr/lib64/opensc-pkcs11.so
+case "$(uname)" in
+    Darwin)
+        export OPENSC=/usr/local/lib/opensc-pkcs11.so
+        ;;
+    Linux)
+        export OPENSC=/usr/lib/x86_64-linux-gnu/opensc-pkcs11.so
+        ;;
+esac
+
 
 # User OCIDS
 export R1_OCID=ocid1.user.region1..aaaaaaaaur6gkncfk7bluazse56dcspgafoad3ftpkts2b7fibxh7dtaw47q
