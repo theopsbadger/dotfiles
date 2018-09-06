@@ -29,7 +29,7 @@ alias path='echo $PATH | tr -s ":" "\n"'
 
 # Anyconnect
 alias vpn="/opt/cisco/anyconnect/bin/vpn"
-alias ocna='vpn connect sea'
+alias ocna='vpn connect "OCNA - (Seattle)"'
 
 # Directories
 alias dl="cd $HOME/Downloads"
