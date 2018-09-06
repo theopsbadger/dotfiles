@@ -66,8 +66,17 @@ fi
 export PATH="$HOME/miniconda3/bin:$PATH"
 
 # golang
-export GOPATH="$HOME/Go"
-export GOROOT=/usr/local/opt/go/libexec
+case "$(uname)" in
+    Darwin)
+        export GOPATH="$HOME/Go"
+        export GOROOT=/usr/local/opt/go/libexec
+        ;;
+    Linux)
+        export GOPATH="$HOME/Projects/go"
+        export GOROOT=/usr/local/go
+        ;;
+esac
+
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
