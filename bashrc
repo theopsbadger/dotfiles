@@ -62,23 +62,29 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# added by Miniconda3 installer
-export PATH="$HOME/miniconda3/bin:$PATH"
+# Pipenv build virtualenv in folder
+export PIPENV_VENV_IN_PROJECT=1
+export EDITOR=code
 
 # golang
-case "$(uname)" in
-    Darwin)
-        export GOPATH="$HOME/Go"
-        export GOROOT=/usr/local/opt/go/libexec
-        ;;
-    Linux)
-        export GOPATH="$HOME/Projects/go"
-        export GOROOT=/usr/local/go
-        ;;
-esac
+export GOPATH="$HOME/Projects/go"
+export GOROOT=/usr/local/go
 
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
+
+alias golang="cd $GOPATH"
+
+# get current branch in git repo
+function parse_git_branch() {
+	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+	if [ ! "${BRANCH}" == "" ]
+	then
+		echo "[${BRANCH}]"
+	else
+		echo ""
+	fi
+}
 
 # Prompt
 RCol='\033[0m'
@@ -86,7 +92,7 @@ Gre='\033[32m';
 Red='\033[31m';
 Blu='\033[34m';
 Yel='\033[33m';
-PS1="${RCol}┌─[\`if [ \$? = 0 ]; then echo "${Gre}"; else echo "${Red}"; fi\`\t\[${Rcol}\] \[${Blu}\]\h\[${RCol}\] \[${Yel}\]\w\[${RCol}\]]\n└─╼ "
+PS1="${RCol}┌─[\`if [ \$? = 0 ]; then echo "${Gre}"; else echo "${Red}"; fi\`\t\[${Rcol}\] \[${Blu}\]\h\[${RCol}\] \[${Yel}\]\w\[${RCol}\]] \`parse_git_branch\`\n└─╼ "
 
 # PyWal setting 
 #(cat ~/.cache/wal/sequences &)

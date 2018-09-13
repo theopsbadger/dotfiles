@@ -17,8 +17,8 @@
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - [mkdir -p ~/Projects, Setting up Project directory]
-  - mkdir ~/Projects/work
-  - mkdir ~/Projects/personal
-  - mkdir ~/Projects/go/src
-  - mkdir ~/Projects/go/bin
-  - mkdir ~/Projects/go/pkg
+  - mkdir -p ~/Projects/work
+  - mkdir -p ~/Projects/personal
+  - mkdir -p ~/Projects/go/src
+  - mkdir -p ~/Projects/go/bin
+  - mkdir -p ~/Projects/go/pkg
