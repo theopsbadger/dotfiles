@@ -18,6 +18,7 @@ esac
 # User OCIDS
 export R1_OCID=ocid1.user.region1..aaaaaaaaur6gkncfk7bluazse56dcspgafoad3ftpkts2b7fibxh7dtaw47q
 export OC1_OCID=ocid1.user.oc1..aaaaaaaaigtwcqjhdgggolztbsrimhtf5iewpj6clqj74xpagghz7lhzlsua
+export OC2_OCID=ocid1.user.oc2..aaaaaaaa52mdan4sa4pobx34522xg74p7uiz32hc3u3klszdca4tkm73xymq
 
 # work dir
 export WORK=$HOME/Projects/work
