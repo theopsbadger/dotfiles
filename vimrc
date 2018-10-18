@@ -38,6 +38,7 @@ set ignorecase
 set pastetoggle=<F2> " Removes auto indent when pasting with mouse
 set nojoinspaces  " Use one space, not two, after punctuation.
 set wildignore=*.swp,*.bak,*.pyc,*.class
+set relativenumber
 
 " Airline settings
 set t_Co=256 " required
