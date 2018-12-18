@@ -62,6 +62,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Miniconda Setup
+
+if [ -d "$HOME/miniconda3/bin" ]; then
+  export PATH="$HOME/miniconda3/bin":$PATH
+fi
+
 # Pipenv build virtualenv in folder
 export PIPENV_VENV_IN_PROJECT=1
 export EDITOR=code
