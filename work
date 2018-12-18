@@ -25,7 +25,9 @@ export WORK=$HOME/Projects/work
 alias work="cd $WORK"
 
 ## pic-tools
-source $WORK/pic-tools/scripts/*.env
+if [ -d "$WORK/pic-tools/scripts" ]; then
+  source $WORK/pic-tools/scripts/*.env
+fi
 
 # autonet
 alias autonet="cd $WORK/autonet"
