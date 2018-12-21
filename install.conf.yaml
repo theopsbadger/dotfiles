@@ -13,12 +13,13 @@
     ~/.gitconfig: gitconfig
     ~/.gitignore_global: gitignore_global
     ~/.work: work
-
+    ~/.config/nvim/init.vim: init.vim
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - [mkdir -p ~/Projects, Setting up Project directory]
   - mkdir -p ~/Projects/work
   - mkdir -p ~/Projects/personal
-  - mkdir -p ~/Projects/go/src
+  - mkdir -p ~/Projects/go/src/github.com/andrewjwarren
+  - mkdir -p ~/Projects/go/src/gitlab.com/andrewjwarren
   - mkdir -p ~/Projects/go/bin
   - mkdir -p ~/Projects/go/pkg
