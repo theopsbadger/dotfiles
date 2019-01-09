@@ -65,7 +65,9 @@ fi
 # Miniconda Setup
 
 if [ -d "$HOME/miniconda3/bin" ]; then
-  export PATH="$HOME/miniconda3/bin":$PATH
+  source $HOME/miniconda3/etc/profile.d/conda.sh
+  conda activate base
+  # export PATH="$HOME/miniconda3/bin":$PATH
 fi
 
 # Pipenv build virtualenv in folder
