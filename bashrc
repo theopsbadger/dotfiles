@@ -76,7 +76,7 @@ export EDITOR=code
 
 # golang
 # Go module support
-export GO111MODULE="on"
+# export GO111MODULE="on"
 
 export GOPATH="$HOME/Projects/go"
 export GOROOT=/usr/local/go
