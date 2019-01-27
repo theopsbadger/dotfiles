@@ -147,3 +147,5 @@ endfunc
 for dir in ["h", "j", "l", "k"]
     call s:mapMoveToWindowInDirection(dir)
 endfor
+
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
