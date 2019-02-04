@@ -68,6 +68,9 @@ if [ -d "$HOME/miniconda3/bin" ]; then
   source $HOME/miniconda3/etc/profile.d/conda.sh
   conda activate base
   # export PATH="$HOME/miniconda3/bin":$PATH
+elif [ -d "/usr/local/miniconda3/bin" ]; then
+  source /usr/local/miniconda3/etc/profile.d/conda.sh
+  conda activate base
 fi
 
 # Pipenv build virtualenv in folder
@@ -78,8 +81,13 @@ export EDITOR=code
 # Go module support
 # export GO111MODULE="on"
 
-export GOPATH="$HOME/Projects/go"
-export GOROOT=/usr/local/go
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	export GOPATH="$HOME/go"
+	export GOROOT="$(brew --prefix)/opt/go/libexec"
+else
+	export GOPATH="$HOME/Projects/go"
+	export GOROOT=/usr/local/go
+fi
 
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
