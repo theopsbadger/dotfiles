@@ -14,6 +14,8 @@
     ~/.gitignore_global: gitignore_global
     ~/.work: work
     ~/.config/nvim/init.vim: init.vim
+    ~/.zshrc: zshrc
+    ~/.condarc: condarc
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - [mkdir -p ~/Projects, Setting up Project directory]

@@ -1,5 +1,6 @@
+# No longer needed was from networking
 # plan-service proxy variable
-export PLAN_SERVICE_PROXY=1
+# export PLAN_SERVICE_PROXY=1
 
 # ARTIFACTORY TWINE CA
 export TWINE_CERT=/etc/ssl/certs/LGL-root-CA.pem
@@ -29,5 +30,6 @@ if [ -d "$WORK/pic-tools/scripts" ]; then
   source $WORK/pic-tools/scripts/*.env
 fi
 
+# No longer needed was in networking
 # autonet
-alias autonet="cd $WORK/autonet"
+# alias autonet="cd $WORK/autonet"
