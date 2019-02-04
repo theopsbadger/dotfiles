@@ -17,6 +17,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Functionalities
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'scrooloose/nerdcommenter'
+Plug 'fatih/vim-go'
 
 call plug#end()
 
@@ -149,3 +150,4 @@ for dir in ["h", "j", "l", "k"]
 endfor
 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType go setlocal ts=4 sts=4 sw=4 expandtab
