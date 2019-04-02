@@ -33,3 +33,7 @@ fi
 # No longer needed was in networking
 # autonet
 # alias autonet="cd $WORK/autonet"
+#
+# Kill McAfee
+alias kill_mcafee='sudo /usr/local/McAfee/AntiMalware/VSControl stop; sudo /usr/local/McAfee/AntiMalware/VSControl stopoas'
+alias unkill_mcafee='sudo /usr/local/McAfee/AntiMalware/VSControl start; sudo /usr/local/McAfee/AntiMalware/VSControl startoas'
