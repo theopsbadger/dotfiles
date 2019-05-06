@@ -51,3 +51,5 @@
 	insteadOf = https://bitbucket.oci.oraclecorp.com/scm
 [url "ssh://git@bitbucket.oci.oraclecorp.com:7999"]
 	insteadOf = https://bitbucket.aka.lgl.grungy.us/scm
+[url "ssh://git@bitbucket.oci.oraclecorp.com:7999"]
+	insteadOf = git://bitbucket.oci.oraclecorp.com:7999

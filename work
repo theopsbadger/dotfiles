@@ -37,3 +37,6 @@ fi
 # Kill McAfee
 alias kill_mcafee='sudo /usr/local/McAfee/AntiMalware/VSControl stop; sudo /usr/local/McAfee/AntiMalware/VSControl stopoas'
 alias unkill_mcafee='sudo /usr/local/McAfee/AntiMalware/VSControl start; sudo /usr/local/McAfee/AntiMalware/VSControl startoas'
+
+# CD to pki git repo
+alias pki-infra='cd $GOPATH/src/bitbucket.aka.lgl.grungy.us/secinf/pki-infra.git'
