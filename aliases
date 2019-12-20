@@ -46,3 +46,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias home='mv ~/.ssh/config ~/.ssh/config.bak'
 alias atwork='mv ~/.ssh/config.bak ~/.ssh/config'
 
+# Training folder
+alias training='cd ~/training'
+

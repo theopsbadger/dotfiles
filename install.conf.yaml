@@ -7,15 +7,17 @@
 
 - link:
     ~/.vimrc: vimrc
-    ~/.aliases: aliases 
+    ~/.aliases: aliases
     ~/.bashrc: bashrc
-    ~/.bash_profile: bash_profile 
+    ~/.bash_profile: bash_profile
     ~/.gitconfig: gitconfig
     ~/.gitignore_global: gitignore_global
     ~/.work: work
     ~/.config/nvim/init.vim: init.vim
     ~/.zshrc: zshrc
     ~/.condarc: condarc
+    ~/.tmux.conf: tmux
+
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - [mkdir -p ~/Projects, Setting up Project directory]

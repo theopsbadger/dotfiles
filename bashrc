@@ -64,17 +64,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Miniconda Setup
-
-if [ -d "$HOME/miniconda3/bin" ]; then
-  source $HOME/miniconda3/etc/profile.d/conda.sh
-  conda activate base
-  # export PATH="$HOME/miniconda3/bin":$PATH
-elif [ -d "/usr/local/miniconda3/bin" ]; then
-  source /usr/local/miniconda3/etc/profile.d/conda.sh
-  conda activate base
-fi
-
 # Pipenv build virtualenv in folder
 export PIPENV_VENV_IN_PROJECT=1
 export EDITOR=code

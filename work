@@ -40,3 +40,7 @@ alias unkill_mcafee='sudo /usr/local/McAfee/AntiMalware/VSControl start; sudo /u
 
 # CD to pki git repo
 alias pki-infra='cd $GOPATH/src/bitbucket.aka.lgl.grungy.us/secinf/pki-infra.git'
+alias pki-ops='cd $WORK/pki-ops'
+
+# CD to work go
+alias mygo='cd $GOPATH/src/bitbucket.oci.oraclecorp.com/~ajwarren'
