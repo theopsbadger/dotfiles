@@ -17,7 +17,7 @@
 *.out
 
 # Dependency directories (remove the comment below to include it)
-# vendor/
+vendor/
 
 ### Go Patch ###
 /vendor/
@@ -169,6 +169,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# virtualenv folders
+.venv/
 
 ### Vim ###
 # Swap

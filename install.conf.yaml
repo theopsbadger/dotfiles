@@ -19,7 +19,6 @@
     ~/.tmux.conf: tmux
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
   - [mkdir -p ~/Projects, Setting up Project directory]
   - mkdir -p ~/Projects/work
   - mkdir -p ~/Projects/personal

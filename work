@@ -7,12 +7,23 @@ export TWINE_CERT=/etc/ssl/certs/LGL-root-CA.pem
 
 # OpenSC Yubikey
 case "$(uname)" in
-    Darwin)
-        export OPENSC=/usr/local/lib/opensc-pkcs11.so
-        ;;
-    Linux)
-        export OPENSC=/usr/lib/x86_64-linux-gnu/opensc-pkcs11.so
-        ;;
+  Darwin)
+    export OPENSC=/usr/local/lib/opensc-pkcs11.so
+    ;;
+  Linux)
+    # os-release should be installed on all systemd systems
+    if [ -e /etc/os-release ]; then
+      _name=$(egrep "^NAME=" /etc/os-release | cut -d "=" -f2)
+      case $_name in
+        Fedora)
+            export OPENSC=/usr/lib64/opensc-pkcs11.so
+            ;;
+        Ubuntu)
+            export OPENSC=/usr/lib/x86_64-linux-gnu/opensc-pkcs11.so
+            ;;
+      esac
+    fi
+    ;;
 esac
 
 
