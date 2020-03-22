@@ -17,6 +17,8 @@
     ~/.zshrc: zshrc
     ~/.condarc: condarc
     ~/.tmux.conf: tmux
+    ~/.confg/sway: config/sway
+    ~/.config/waybar: config/waybar 
 
 - shell:
   - [mkdir -p ~/Projects, Setting up Project directory]

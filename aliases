@@ -49,3 +49,7 @@ alias atwork='mv ~/.ssh/config.bak ~/.ssh/config'
 # Training folder
 alias training='cd ~/training'
 
+# VIM or NVIM
+if [[ -x $(command -v nvim) ]]; then 
+    alias vim=nvim
+fi

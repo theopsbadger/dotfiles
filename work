@@ -55,3 +55,7 @@ alias pki-ops='cd $WORK/pki-ops'
 
 # CD to work go
 alias mygo='cd $GOPATH/src/bitbucket.oci.oraclecorp.com/~ajwarren'
+
+# openconnect
+alias disconnect='sudo -E killall -SIGINT openconnect'
+alias workvpn='sudo openconnect -b -u andrew.j.warren --csd-wrapper=/home/ajwarren/Downloads/hostscan-bypass.sh se3-p-sec-vpn-01.oracle-ocna.com --os=mac-intel'
