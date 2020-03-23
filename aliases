@@ -53,3 +53,8 @@ alias training='cd ~/training'
 if [[ -x $(command -v nvim) ]]; then 
     alias vim=nvim
 fi
+
+# Podman or Docker
+if [[ -x $(command -v podman) ]]; then
+    alias docker=podman
+fi

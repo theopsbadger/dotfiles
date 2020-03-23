@@ -19,6 +19,8 @@ set $term alacritty --live-config-reload
 # Note: it's recommended that you pass the final command to sway
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
+# Your preferred web browser
+set $browser firefox-wayland
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -176,6 +178,7 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
     assign [class="Slack"] $ws9
     assign [app_id="Alacritty"] $ws1
     assign [class="Code"] $ws2
+    assign [app_id="firefox"] $ws3
 #
 # Layout stuff:
 #
@@ -259,3 +262,9 @@ bar {
 }
 
 include /etc/sway/config.d/*
+
+exec $term
+exec mako
+exec slack
+exec code
+exec firefox-wayland
