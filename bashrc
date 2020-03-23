@@ -64,6 +64,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Set user bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/bin
+
 # Pipenv build virtualenv in folder
 export PIPENV_VENV_IN_PROJECT=1
 export EDITOR=code

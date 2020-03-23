@@ -324,7 +324,7 @@ schemes:
       white:   '#ebdbb2'
 
 # Colors (Tomorrow Night Bright)
-colors: *monokai_pro
+colors: *afterglow
   # Default colors
   #primary:
   #  background: '0x000000'

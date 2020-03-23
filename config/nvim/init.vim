@@ -10,6 +10,7 @@ endif
 call plug#begin()
 
 " Aesthetics - Main
+Plug 'danilo-augusto/vim-afterglow'
 Plug 'dracula/vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -21,10 +22,14 @@ Plug 'fatih/vim-go'
 
 call plug#end()
 
+" afterglow settings
+let g:afterglow_italic_comments=1
+let g:afterglow_inherit_background=1
+
 
 """ Coloring
 syntax on
-color dracula
+colorscheme afterglow
 highlight Pmenu guibg=white guifg=black gui=bold
 highlight Comment gui=bold
 highlight Normal gui=none
@@ -37,7 +42,7 @@ highlight TermCursor ctermfg=red guifg=red
 set t_Co=256 " required
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 let g:airline_powerline_fonts=1
-let g:airline_theme='solarized'
+let g:airline_theme='afterglow'
 let g:airline_solarized_bg='dark'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'

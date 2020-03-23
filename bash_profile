@@ -7,9 +7,7 @@ fi
 
 # User specific environment and startup programs
 
-PATH=$PATH:$HOME/.local/bin:$HOME/bin
-
-export PATH
+export PATH=$PATH:$HOME/.local/bin:$HOME/bin
 
 # Add Visual Studio Code (code)
 if [[ "$OSTYPE" == "darwin"* ]]; then
