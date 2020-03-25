@@ -18,14 +18,21 @@ set $term alacritty --live-config-reload
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
+#set $menu wofi --show drun -f -i --width 350
 
-# Your preferred web browser
+
 set $browser firefox-wayland
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/f31/default/normalish/f31.png fill
 output * bg $HOME/Pictures/wallpapers/wallpaper4.jpeg fill
+output eDP-1 {
+#   background $HOME/Pictures/wallpapers/wallpaper4.jpeg fill 
+   resolution 1920x1080
+   pos 0 0
+}
 #
 # Example configuration:
 #
@@ -37,11 +44,11 @@ output * bg $HOME/Pictures/wallpapers/wallpaper4.jpeg fill
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' \
-#               resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * dpms off"' \
+         resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -63,11 +70,12 @@ output * bg $HOME/Pictures/wallpapers/wallpaper4.jpeg fill
 
 input type:keyboard {
     xkb_layout us
-    xkb_options ctrl:nocaps
+    xkb_options ctrl:nocaps,altwin:swap_lalt_lwin
 }
 
 input "2:7:SynPS/2_Synaptics_TouchPad" {
     natural_scroll enabled    
+    dwt enabled
 }
 
 ### Key bindings
@@ -149,7 +157,7 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
     set $ws7 "7"
     set $ws8 "8"
     set $ws9 "9 "
-    set $ws10 "10"
+    set $ws10 "10 "
     # switch to workspace
     bindsym $mod+1 workspace $ws1
     bindsym $mod+2 workspace $ws2
@@ -179,6 +187,12 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
     assign [app_id="Alacritty"] $ws1
     assign [class="Code"] $ws2
     assign [app_id="firefox"] $ws3
+    assign [app_id="evolution"] $ws10
+
+    workspace $ws1 gaps inner 5
+
+    for_window [app_id="Alacritty"] border pixel 5
+    default_border none
 #
 # Layout stuff:
 #
@@ -268,3 +282,5 @@ exec mako
 exec slack
 exec code
 exec firefox-wayland
+exec evolution
+exec eval $(ssh-agent -s)
