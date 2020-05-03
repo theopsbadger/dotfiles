@@ -94,6 +94,8 @@ export ANDROID_NDK_ROOT="$ANDROID_SDK_ROOT/ndk"
 export PATH="$HOME/Android/Sdk/tools:$PATH"
 export PATH="$HOME/Android/Sdk/platform-tools:$PATH"
 
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
 # get current branch in git repo
 function parse_git_branch() {
 	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`

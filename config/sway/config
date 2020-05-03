@@ -17,12 +17,16 @@ set $right l
 set $term alacritty --live-config-reload
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
-#set $menu wofi --show drun -f -i --width 350
+#set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu wofi --show run
 
 
 set $browser firefox-wayland
 
+set $laptop eDP-1
+
+bindswitch --reload lid:on output $laptop disable
+bindswitch --reload lid:off output $laptop enable
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -188,11 +192,12 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
     assign [class="Code"] $ws2
     assign [app_id="firefox"] $ws3
     assign [app_id="evolution"] $ws10
+    assign [class="zoom"] $ws8
 
     workspace $ws1 gaps inner 5
 
     for_window [app_id="Alacritty"] border pixel 5
-    default_border none
+    smart_borders on
 #
 # Layout stuff:
 #

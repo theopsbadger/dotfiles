@@ -18,7 +18,11 @@ Plug 'vim-airline/vim-airline-themes'
 " Functionalities
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'scrooloose/nerdcommenter'
+
+" Programming 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'hashivim/vim-terraform'
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
@@ -76,6 +80,12 @@ let g:airline_symbols.whitespace = 'Ξ'
 let NERDTreeShowHidden=1
 let g:NERDTreeDirArrowExpandable = '↠'
 let g:NERDTreeDirArrowCollapsible = '↡'
+
+" vim-terraform
+let g:terraform_fmt_on_save=1
+
+" Rust
+let g:rustfmt_autosave = 1
 
 """ Key Bindings
 " mapleader

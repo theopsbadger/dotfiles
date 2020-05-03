@@ -50,7 +50,7 @@ alias kill_mcafee='sudo /usr/local/McAfee/AntiMalware/VSControl stop; sudo /usr/
 alias unkill_mcafee='sudo /usr/local/McAfee/AntiMalware/VSControl start; sudo /usr/local/McAfee/AntiMalware/VSControl startoas'
 
 # CD to pki git repo
-alias pki-infra='cd $GOPATH/src/bitbucket.aka.lgl.grungy.us/secinf/pki-infra.git'
+alias pki-infra='cd $GOPATH/src/bitbucket.oci.oraclecorp.com/secinf/pki-infra'
 alias pki-ops='cd $WORK/pki-ops'
 export GOPRIVATE=bitbucket.oci.oraclecorp.com
 
@@ -60,3 +60,25 @@ alias mygo='cd $GOPATH/src/bitbucket.oci.oraclecorp.com/~ajwarren'
 # openconnect
 alias disconnect='sudo -E killall -SIGINT openconnect'
 alias workvpn='sudo openconnect -b -u andrew.j.warren --csd-wrapper=/home/ajwarren/Downloads/hostscan-bypass.sh se3-p-sec-vpn-01.oracle-ocna.com --os=mac-intel'
+
+ssh-cavium () {
+	if [ $# -lt 2 ]; then
+		echo "Usage: ssh-cavium region ip"
+		return
+	fi
+	ssh -o StrictHostKeyChecking=no -q -vvv -o ProxyCommand="ssh -W %h:%p bastion-ad1.rb.${1}.oci.oracleiaas.com" "$2"
+}
+ssh-cavium-gov() {
+	if [ $# -lt 2 ]; then
+		echo "Usage: ssh-cavium region ip"
+		return
+	fi
+	ssh -o StrictHostKeyChecking=no -q -o  ProxyCommand="ssh -W %h:%p bastion-ad1.$1.oraclegoviaas.com" "$2"
+}
+ssh-cavium-gov-uk() {
+	if [ $# -lt 2 ]; then
+		echo "Usage: ssh-cavium region ip"
+		return
+	fi
+	ssh -o StrictHostKeyChecking=no -q -o  ProxyCommand="ssh -W %h:%p bastion-ad1.rb.$1.oraclegoviaas.uk" "$2"
+}
