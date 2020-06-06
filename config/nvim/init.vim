@@ -23,6 +23,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'hashivim/vim-terraform'
 Plug 'rust-lang/rust.vim'
+Plug 'vim-syntastic/syntastic'
 
 call plug#end()
 
@@ -86,6 +87,14 @@ let g:terraform_fmt_on_save=1
 
 " Rust
 let g:rustfmt_autosave = 1
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 """ Key Bindings
 " mapleader

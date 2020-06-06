@@ -4,8 +4,8 @@ set-option -g prefix C-Space
 bind-key C-Space send-prefix
 
 # split panes using | and -
-bind \\ split-window -h
-bind - split-window -v
+bind b split-window -h
+bind v split-window -v
 unbind '"'
 unbind %
 
