@@ -58,3 +58,5 @@ fi
 if [[ -x $(command -v podman) ]]; then
     alias docker=podman
 fi
+
+alias rustlang="cd $HOME/Projects/rust"

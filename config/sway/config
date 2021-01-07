@@ -37,6 +37,8 @@ output eDP-1 {
    resolution 1920x1080
    pos 0 0
 }
+
+output DP-1 mode 3840x1600@29.997999Hz
 #
 # Example configuration:
 #
@@ -124,6 +126,10 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
     bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 
+#
+# Screenshot:
+#
+    bindsym print exec --no-startup-id slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'screenshot_%F-%H%M%S.png')
 #
 # Moving around:
 #
@@ -223,6 +229,8 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
 
     # move focus to the parent container
     bindsym $mod+a focus parent
+
+    # Take screenshot
 #
 # Scratchpad:
 #

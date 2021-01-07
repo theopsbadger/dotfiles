@@ -82,3 +82,64 @@ ssh-cavium-gov-uk() {
 	fi
 	ssh -o StrictHostKeyChecking=no -q -o  ProxyCommand="ssh -W %h:%p bastion-ad1.rb.$1.oraclegoviaas.uk" "$2"
 }
+
+alias barndoor-oc7='ssh -vtD 1081 barndoor7.ob.us-phoenix-1.oci.oraclecloud.com watch -n 90 date'
+alias barndoor-oc6='ssh -vtD 1080 barndoor6.ob.us-phoenix-1.oci.oraclecloud.com watch -n 90 date'
+
+kubeconfig () {
+    if [ -z "$1" ]
+    then
+        echo "Regional argument not supplied. Must be one of dev-iad, dev-phx, integ-iad, prd-iad, prd-phx, prd-fra, prd-lhr, prd-yyz"
+        return 1
+    fi
+    export KUBECONFIG=$GOPATH/src/bitbucket.oci.oraclecorp.com/okei/secrets/k8-infra/${1}/kubeconfig.TNL
+}
+
+tunnel () {
+    if [ -z "$1" ]
+    then
+        echo "Regional argument not supplied. Must be one of dev-iad, dev-phx, integ-iad, prd-iad, prd-phx, prd-fra, prd-lhr, prd-yyz"
+        return 1
+    fi
+    KUBECONFIG=$GOPATH/src/bitbucket.oci.oraclecorp.com/okei/secrets/k8-infra/${1}/kubeconfig.TNL $GOPATH/src/bitbucket.oci.oraclecorp.com/okei/secrets/bin/tunnel.sh
+}
+
+export BASE_AGENT_REPO=$GOPATH/src/bitbucket.oci.oraclecorp.com/oke/oke-base-agent
+export CANARY_REPO=$GOPATH/src/bitbucket.oci.oraclecorp.com/oke/oke-canary
+export CONFIG_REPO=$GOPATH/src/bitbucket.oci.oraclecorp.com/okei/config
+export INFRA_REPO=$GOPATH/src/bitbucket.oci.oraclecorp.com/oke/infra
+export INFRA_AGENT_REPO=$GOPATH/src/bitbucket.oci.oraclecorp.com/oke/oke-infra-agent
+export INFRA_BUNDLE_REPO=$GOPATH/src/bitbucket.oci.oraclecorp.com/oke/oke-infra-bundle
+export INFRA_CONFIG_REPO=$GOPATH/src/bitbucket.oci.oraclecorp.com/oke/oke-infra-config
+export INFRA_CORESVCS_REPO=$GOPATH/src/bitbucket.oci.oraclecorp.com/oke/oke-infra-coresvcs
+export INFRA_DEPLOY_REPO=$GOPATH/src/bitbucket.oci.oraclecorp.com/oke/oke-infra-deploy
+export INFRA_INSTANCE_REPO=$GOPATH/src/bitbucket.oci.oraclecorp.com/oke/oke-infra-instance
+export INFRA_LOCAL_REPO=$GOPATH/src/bitbucket.oci.oraclecorp.com/oke/oke-infra-local
+export INFRA_PRIME_REPO=$GOPATH/src/bitbucket.oci.oraclecorp.com/oke/infra-prime
+export INFRA_REGION_REPO=$GOPATH/src/bitbucket.oci.oraclecorp.com/oke/oke-infra-region
+export OKE_REPO=$GOPATH/src/bitbucket.oci.oraclecorp.com/odx/oke
+export SECRETS_REPO=$GOPATH/src/bitbucket.oci.oraclecorp.com/okei/secrets
+export SECRETS_GOV_REPO=$GOPATH/src/bitbucket.oci.oraclecorp.com/okei/secrets_usgov
+
+docker_cleanup () {
+  docker ps -aqf status=exited | xargs -I{} docker rm {}
+  docker images -q -f dangling=true | xargs -I{} docker rmi {}
+}
+
+docker_prune () {
+  docker image prune -a -f
+}
+
+docker_start () {
+  open --background -a Docker
+}
+
+docker_stop () {
+  osascript -e 'quit app "Docker"'
+}
+
+alias ia="\$INFRA_LOCAL_REPO/ia.sh"
+alias ia_core="MOUNT_INFRA_CORESVCS=1 \$INFRA_LOCAL_REPO/ia.sh"
+alias ia_dev="MOUNT_INFRA=1 MOUNT_OCI=1 NO_BUILD=\${NO_BUILD:-0} \$INFRA_LOCAL_REPO/ia.sh"
+alias ia_gov="CONFIG_REPO=\$SECRETS_GOV_REPO SECRETS_REPO=\$SECRETS_GOV_REPO \$INFRA_LOCAL_REPO/ia.sh"
+alias ia_update="\$INFRA_LOCAL_REPO/ia.sh update"

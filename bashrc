@@ -117,3 +117,9 @@ PS1="${RCol}┌─[\`if [ \$? = 0 ]; then echo "${Gre}"; else echo "${Red}"; fi\
 
 # PyWal setting 
 #(cat ~/.cache/wal/sequences &)
+
+if command -v kubectl &> /dev/null
+then
+    source <(kubectl completion bash)
+fi
+
