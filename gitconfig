@@ -3,9 +3,11 @@
   excludesfile = ~/.gitignore_global
 
 [user]
-  name = Andrew J Warren
-  email = andrew.j.warren@oracle.com
-  username = ajwarren
+  name = Andrew Warren
+  email = ajwarren85@gmail.com
+
+[includeIf "gitdir:~/Projects/work/"]
+  path = ~/.gitwork
 
 [color]
   ui = true
@@ -45,17 +47,3 @@
   # https://git-scm.com/docs/git-stash
 
   ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
-
-# Needed to access work bitbucket for "go get"
-[url "ssh://bitbucket.oci.oraclecorp.com:7999/"]
-        insteadOf = https://bitbucket.aka.lgl.grungy.us/
-[url "ssh://git@bitbucket.oci.oraclecorp.com:7999"]
-	insteadOf = https://bitbucket.oci.oraclecorp.com/
-[url "ssh://git@bitbucket.oci.oraclecorp.com:7999"]
-	insteadOf = https://bitbucket.oci.oraclecorp.com/scm
-[url "ssh://git@bitbucket.oci.oraclecorp.com:7999"]
-	insteadOf = https://bitbucket.aka.lgl.grungy.us/scm
-[url "ssh://git@bitbucket.oci.oraclecorp.com:7999"]
-	insteadOf = git://bitbucket.oci.oraclecorp.com:7999
-[url "ssh://git@bitbucket.oci.oraclecorp.com:7999"]
-	insteadOf = git://bitbucket.oci.oraclecorp.com
