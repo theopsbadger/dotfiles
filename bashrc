@@ -39,9 +39,9 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-#if [ -f ~/.work ]; then
-#    . ~/.work
-#fi
+if [[ -d "$HOME/Projects/work" ]]; then
+    export WORKDIR="$HOME/Projects/work"
+fi
 
 # Add work related stuff
 # https://github.com/mathiasbynens/dotfiles/blob/master/.bash_profile

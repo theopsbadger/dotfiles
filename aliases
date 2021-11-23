@@ -60,3 +60,8 @@ if [[ -x $(command -v podman) ]]; then
 fi
 
 alias rustlang="cd $HOME/Projects/rust"
+
+if [[ ! -z ${WORKDIR+z} ]]; then 
+    alias work="cd $WORKDIR"
+fi
+
