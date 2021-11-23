@@ -63,7 +63,9 @@ if ! shopt -oq posix; then
     . /usr/local/etc/bash_completion
   elif [ -f /usr/local/etc/profile.d/bash_completion.sh ]; then
     . /usr/local/etc/profile.d/bash_completion.sh
-  fi fi
+  fi 
+fi
+
 # Set user bin
 export PATH=$PATH:$HOME/.local/bin:$HOME/bin
 
