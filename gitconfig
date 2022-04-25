@@ -1,5 +1,5 @@
 [core]
-  editor = nvim
+  editor = vim
   excludesfile = ~/.gitignore_global
 
 [user]
@@ -33,6 +33,9 @@
   cob = checkout -b
   st = status
   br = branch
+  sb = switch
+  sbc = switch -c 
+  bd = branch -d
 
   prune = fetch --prune
   # Because I constantly forget how to do this

@@ -125,3 +125,7 @@ then
     source <(kubectl completion bash)
 fi
 
+export KUBE_EDITOR=vim
+
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
