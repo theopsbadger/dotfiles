@@ -109,13 +109,24 @@ function parse_git_branch() {
 	fi
 }
 
+if [[ -e /usr/local/opt/kube-ps1/share/kube-ps1.sh ]]; then
+    source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+    export KUBE_PS1_SYMBOL_ENABLE=false
+    export KUBE_PS1_PREFIX=[
+    export KUBE_PS1_SUFFIX=]
+    export KUBE_PS1_DIVIDER="|"
+fi
+
 # Prompt
 RCol='\033[0m'
 Gre='\033[32m';
 Red='\033[31m';
 Blu='\033[34m';
 Yel='\033[33m';
-PS1="${RCol}┌─[\`if [ \$? = 0 ]; then echo "${Gre}"; else echo "${Red}"; fi\`\t\[${Rcol}\] \[${Blu}\]\h\[${RCol}\] \[${Yel}\]\w\[${RCol}\]] \`parse_git_branch\`\n└─╼ "
+
+if [[ -e /usr/local/opt/kube-ps1/share/kube-ps1.sh ]]; then
+ PS1="${RCol}┌─[\`if [ \$? = 0 ]; then echo "${Gre}"; else echo "${Red}"; fi\`\t\[${Rcol}\] \[${Blu}\]\w\[${RCol}\]]-\[${Yel}\$(kube_ps1)\[${RCol}\] \`parse_git_branch\`\n└─╼ "
+fi
 
 # PyWal setting 
 #(cat ~/.cache/wal/sequences &)

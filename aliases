@@ -1,7 +1,6 @@
 # LS Color
 case "$(uname)" in
-    Darwin)
-        alias ll="ls -lhaFG"
+    Darwin) alias ll="ls -lhaFG"
         alias la="ls -AG"
         alias l="ls -CFG"
         ;;
@@ -66,3 +65,11 @@ if [[ ! -z ${WORKDIR+z} ]]; then
 fi
 
 alias ipython="python3 -m IPython"
+
+alias gp="git pull"
+
+function kcns(){
+  CONTEXT=`kubectl config current-context`
+  NAMESPACE=`kubectl config get-contexts | grep ${CONTEXT} | awk '{print $5}'`
+  echo $NAMESPACE
+}
