@@ -68,6 +68,21 @@ alias ipython="python3 -m IPython"
 
 alias gp="git pull"
 
+# Kubectl aliases
+if command -v kubectl &> /dev/null
+then
+    alias k="kubectl"
+    alias kg="k get"
+    alias kgp="kg pods"
+    alias kgap="kgp --all-namespaces"
+    alias kgd="kg deployments"
+    alias kl="k logs"
+    alias ke="k exec -it"
+    alias kns="kubens"
+    alias kctx="kubectx"
+fi
+
+
 function kcns(){
   CONTEXT=`kubectl config current-context`
   NAMESPACE=`kubectl config get-contexts | grep ${CONTEXT} | awk '{print $5}'`

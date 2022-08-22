@@ -125,7 +125,7 @@ Blu='\033[34m';
 Yel='\033[33m';
 
 if [[ -e /usr/local/opt/kube-ps1/share/kube-ps1.sh ]]; then
- PS1="${RCol}┌─[\`if [ \$? = 0 ]; then echo "${Gre}"; else echo "${Red}"; fi\`\t\[${Rcol}\] \[${Blu}\]\w\[${RCol}\]]-\[${Yel}\$(kube_ps1)\[${RCol}\] \`parse_git_branch\`\n└─╼ "
+ PS1="${RCol}┌─[\`if [ \$? = 0 ]; then echo "${Gre}"; else echo "${Red}"; fi\`\t\[${RCol}\]]-\$(kube_ps1)\[${RCol}\]-[\[${Yel}\w\[${RCol}\]] \`parse_git_branch\`\n└─╼ "
 fi
 
 # PyWal setting 
