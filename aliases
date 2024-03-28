@@ -26,10 +26,6 @@ alias mkdir="mkdir -p"
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
-# Anyconnect
-alias vpn="/opt/cisco/anyconnect/bin/vpn"
-alias ocna='vpn connect "OCNA - (Seattle)"'
-
 # Directories
 alias dl="cd $HOME/Downloads"
 alias dotfiles="cd $HOME/dotfiles"
@@ -39,14 +35,11 @@ alias reload="exec ${SHELL}"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+# alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Move ssh when at home
 alias home='mv ~/.ssh/config ~/.ssh/config.bak'
 alias atwork='mv ~/.ssh/config.bak ~/.ssh/config'
-
-# Training folder
-alias training='cd ~/training'
 
 # VIM or NVIM
 if [[ -x $(command -v nvim) ]]; then 
@@ -58,15 +51,11 @@ if [[ -x $(command -v podman) ]]; then
     alias docker=podman
 fi
 
-alias rustlang="cd $HOME/Projects/rust"
+#alias rustlang="cd $HOME/Projects/rust"
 
 if [[ ! -z ${WORKDIR+z} ]]; then 
     alias work="cd $WORKDIR"
 fi
-
-alias ipython="python3 -m IPython"
-
-alias gp="git pull"
 
 # Kubectl aliases
 if command -v kubectl &> /dev/null
@@ -81,7 +70,6 @@ then
     alias kns="kubens"
     alias kctx="kubectx"
 fi
-
 
 function kcns(){
   CONTEXT=`kubectl config current-context`

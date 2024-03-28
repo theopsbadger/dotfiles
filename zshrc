@@ -150,16 +150,6 @@ fi
 export PIPENV_VENV_IN_PROJECT=1
 export EDITOR=code
 
-# OpenSC Yubikey
-case "$(uname)" in
-    Darwin)
-        export OPENSC=/usr/local/lib/opensc-pkcs11.so
-        ;;
-    Linux)
-        export OPENSC=/usr/lib/x86_64-linux-gnu/opensc-pkcs11.so
-        ;;
-esac
-
 export DEFAULT_USER=ajwarren
 
 ############################################################
@@ -171,15 +161,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 fi
 
-# Miniconda Setup
-if [ -d "$HOME/miniconda3/bin" ]; then
-  source $HOME/miniconda3/etc/profile.d/conda.sh
-  conda activate base
-  # export PATH="$HOME/miniconda3/bin":$PATH
-elif [ -d "/usr/local/miniconda3/bin" ]; then
-  source /usr/local/miniconda3/etc/profile.d/conda.sh
-  conda activate base
-fi
 
 # GOLANG Stuff
 export PATH=$PATH:$GOPATH/bin
@@ -188,3 +169,7 @@ export PATH=$PATH:$GOROOT/bin
 alias golang="cd $GOPATH"
 
 prompt_context() {}
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
