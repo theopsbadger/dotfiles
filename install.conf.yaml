@@ -6,25 +6,23 @@
 - clean: ['~']
 
 - link:
-    ~/.vimrc: vimrc
+  #  ~/.vimrc: vimrc
     ~/.aliases: aliases
     ~/.bashrc: bashrc
     ~/.bash_profile: bash_profile
+    ~/.config/nvim: config/nvim
     ~/.gitconfig: gitconfig
     ~/.gitignore_global: gitignore_global
-    ~/.work: work
-    ~/.config/nvim/init.vim: init.vim
-    ~/.zshrc: zshrc
-    ~/.condarc: condarc
-    ~/.tmux.conf: tmux
-    ~/.confg/sway: config/sway
-    ~/.config/waybar: config/waybar 
+    ~/.p10k.zsh: p10k.zsh
+    ~/.tmux.conf: tmux.conf
+    ~/.tmux/plugins/tpm: tpm
+    ~/.zshrc: zshrcnew
+  #  ~/.condarc: condarc
+  #    ~/.confg/sway: config/sway
+  #  ~/.config/waybar: config/waybar 
 
 - shell:
   - [mkdir -p ~/Projects, Setting up Project directory]
   - mkdir -p ~/Projects/work
   - mkdir -p ~/Projects/personal
-  - mkdir -p ~/Projects/go/src/github.com/andrewjwarren
-  - mkdir -p ~/Projects/go/src/gitlab.com/andrewjwarren
-  - mkdir -p ~/Projects/go/bin
-  - mkdir -p ~/Projects/go/pkg
+  - mkdir -p ~/.tmux/plugins 

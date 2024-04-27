@@ -28,6 +28,9 @@
   changed = green
   untracked = red
 
+[push]
+  autoSetupRemote = true
+
 [alias]
   co = checkout
   cob = checkout -b
