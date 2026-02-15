@@ -53,3 +53,6 @@
   # https://git-scm.com/docs/git-stash
 
   ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/

@@ -47,9 +47,9 @@ if [[ -x $(command -v nvim) ]]; then
 fi
 
 # Podman or Docker
-if [[ -x $(command -v podman) ]]; then
-    alias docker=podman
-fi
+#if [[ -x $(command -v podman) ]]; then
+#    alias docker=podman
+#fi
 
 #alias rustlang="cd $HOME/Projects/rust"
 

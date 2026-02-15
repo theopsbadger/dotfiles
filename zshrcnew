@@ -5,6 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+autoload -Uz compinit
+compinit
+
 path=("$HOME/.local/bin" $path)
 export PATH
 
@@ -35,3 +38,7 @@ eval $(thefuck --alias)
 eval $(thefuck --alias fk)
 
 eval "$(fzf --zsh)"
+
+eval "$(mise activate zsh)"
+
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
