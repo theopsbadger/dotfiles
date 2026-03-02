@@ -1,6 +1,7 @@
 # LS Color
 case "$(uname)" in
-    Darwin) alias ll="ls -lhaFG"
+    Darwin) 
+        alias ll="ls -lhaFG"
         alias la="ls -AG"
         alias l="ls -CFG"
         ;;
@@ -10,6 +11,15 @@ case "$(uname)" in
         alias l="ls -CF --color=auto"
         ;;
 esac
+
+# Or if Eza installed
+if command -v eza >/dev/null 2>&1; then
+    alias ls="eza --icons"
+    alias l="ls"
+    alias ll="ls -lha --icons --git --group-directories-first"
+    alias la="ls -a --icons"
+    alias lt="ls --tree --level=2 --icons --group-directories-first"
+fi
 
 # Dir
 #alias dir='dir --color=auto'
