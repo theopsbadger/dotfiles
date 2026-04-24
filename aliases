@@ -47,10 +47,6 @@ alias reload="exec ${SHELL}"
 #   sleep 10; alert
 # alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Move ssh when at home
-alias home='mv ~/.ssh/config ~/.ssh/config.bak'
-alias atwork='mv ~/.ssh/config.bak ~/.ssh/config'
-
 # VIM or NVIM
 if [[ -x $(command -v nvim) ]]; then 
     alias vim=nvim
@@ -63,7 +59,7 @@ fi
 
 #alias rustlang="cd $HOME/Projects/rust"
 
-if [[ ! -z ${WORKDIR+z} ]]; then 
+if [[ -v WORKDIR ]]; then 
     alias work="cd $WORKDIR"
 fi
 
@@ -82,7 +78,30 @@ then
 fi
 
 function kcns(){
-  CONTEXT=`kubectl config current-context`
-  NAMESPACE=`kubectl config get-contexts | grep ${CONTEXT} | awk '{print $5}'`
-  echo $NAMESPACE
+  kubectl config view --minify -o jsonpath='{..namespace}'
+  echo
 }
+
+extract () {
+   if [ -f $1 ] ; then
+           case "$1" in
+           *.tar.bz2)    tar xvjf $1    ;;
+           *.tar.gz)    tar xvzf $1    ;;
+           *.tar.xz)    tar xf $1      ;;
+           *.bz2)        bunzip2 $1     ;;
+           *.rar)        rar x $1     ;;
+           *.gz)        gunzip $1      ;;
+           *.tar)        tar xvf $1     ;;
+           *.tbz2)        tar xvjf $1    ;;
+           *.tgz)        tar xvzf $1    ;;
+           *.zip)        unzip $1       ;;
+           *.Z)        uncompress $1  ;;
+           *.7z)        7z x $1        ;;
+           *)        echo "don't know how to extract '$1'..." ;;
+           esac
+   else
+           echo "'$1' is not a valid file!"
+   fi
+}
+
+alias ..='cd ..'

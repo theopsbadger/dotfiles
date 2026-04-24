@@ -17,6 +17,7 @@
     ~/.tmux.conf: tmux.conf
     ~/.tmux/plugins/tpm: tpm
     ~/.zshrc: zshrcnew
+    ~/.claude/settings.json: claude/settings.json
   #  ~/.condarc: condarc
   #    ~/.confg/sway: config/sway
   #  ~/.config/waybar: config/waybar 
