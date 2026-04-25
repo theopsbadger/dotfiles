@@ -48,5 +48,6 @@
       "Bash(brew list*)",
       "Bash(brew info*)"
     ]
-  }
+  },
+  "theme": "dark"
 }
