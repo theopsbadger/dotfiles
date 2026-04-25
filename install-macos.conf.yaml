@@ -1,0 +1,10 @@
+- defaults:
+    link:
+      relink: true
+      force: true
+
+- shell:
+  - [brew bundle, Installing Homebrew packages]
+
+- link:
+    ~/.config/iterm: iterm

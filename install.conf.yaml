@@ -5,11 +5,17 @@
 
 - clean: ['~']
 
+- shell:
+  - [git submodule update --init --recursive, Initializing git submodules]
+  - [mkdir -p ~/Projects, Setting up Project directory]
+  - mkdir -p ~/Projects/work
+  - mkdir -p ~/Projects/personal
+  - mkdir -p ~/.tmux/plugins 
+  - mkdir -p ~/.claude
+
 - link:
   #  ~/.vimrc: vimrc
     ~/.aliases: aliases
-    ~/.bashrc: bashrc
-    ~/.bash_profile: bash_profile
     ~/.config/nvim: config/nvim
     ~/.gitconfig: gitconfig
     ~/.gitignore_global: gitignore_global
@@ -18,12 +24,4 @@
     ~/.tmux/plugins/tpm: tpm
     ~/.zshrc: zshrcnew
     ~/.claude/settings.json: claude/settings.json
-  #  ~/.condarc: condarc
-  #    ~/.confg/sway: config/sway
-  #  ~/.config/waybar: config/waybar 
-
-- shell:
-  - [mkdir -p ~/Projects, Setting up Project directory]
-  - mkdir -p ~/Projects/work
-  - mkdir -p ~/Projects/personal
-  - mkdir -p ~/.tmux/plugins 
+    ~/.local/bin: bin

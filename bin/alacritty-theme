@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+THEMES_DIR="$HOME/.config/alacritty/themes/themes"
+CONFIG="$HOME/.config/alacritty/alacritty.toml"
+
+list_themes() {
+    ls "$THEMES_DIR" | sed 's/\.toml$//'
+}
+
+if [[ $# -eq 0 || "${1:-}" == "--list" || "${1:-}" == "-l" ]]; then
+    list_themes
+    exit 0
+fi
+
+THEME="$1"
+THEME_FILE="$THEMES_DIR/${THEME}.toml"
+
+if [[ ! -f "$THEME_FILE" ]]; then
+    echo "Theme not found: $THEME" >&2
+    echo "Run 'alacritty-theme --list' to see available themes" >&2
+    exit 1
+fi
+
+tmpfile=$(mktemp)
+awk '
+/^\[colors/ { in_colors=1 }
+/^\[/ && !/^\[colors/ { in_colors=0 }
+!in_colors { print }
+' "$CONFIG" | sed 's/[[:space:]]*$//' > "$tmpfile"
+
+printf '\n' >> "$tmpfile"
+cat "$THEME_FILE" >> "$tmpfile"
+
+mv "$tmpfile" "$CONFIG"
+echo "Switched to: $THEME"

@@ -1,0 +1,120 @@
+[cursor]
+style = "Block"
+unfocused_hollow = true
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 14.0
+
+#[font.bold]
+#family = "Source Code Pro"
+#
+#[font.bold_italic]
+#family = "Source Code Pro"
+#
+#[font.italic]
+#family = "Source Code Pro"
+#
+#[font.normal]
+#family = "Source Code Pro"
+#style = "Semibold"
+
+[font.offset]
+x = 0
+y = 0
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u0016"
+key = "V"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0003"
+key = "C"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+
+[general]
+live_config_reload = true
+
+[scrolling]
+history = 10000
+
+[window]
+decorations = "none"
+opacity = 0.9
+title = "Alacritty"
+
+[keyboard]
+
+# Default colors
+[colors.primary]
+background = '#2c2c2c'
+foreground = '#d6d6d6'
+
+dim_foreground    = '#dbdbdb'
+bright_foreground = '#d9d9d9'
+
+# Cursor colors
+[colors.cursor]
+text   = '#2c2c2c'
+cursor = '#d9d9d9'
+
+# Normal colors
+[colors.normal]
+black   = '#1c1c1c'
+red     = '#bc5653'
+green   = '#909d63'
+yellow  = '#ebc17a'
+blue    = '#7eaac7'
+magenta = '#aa6292'
+cyan    = '#86d3ce'
+white   = '#cacaca'
+
+# Bright colors
+[colors.bright]
+black   = '#636363'
+red     = '#bc5653'
+green   = '#909d63'
+yellow  = '#ebc17a'
+blue    = '#7eaac7'
+magenta = '#aa6292'
+cyan    = '#86d3ce'
+white   = '#f7f7f7'
+
+# Dim colors
+[colors.dim]
+black   = '#232323'
+red     = '#74423f'
+green   = '#5e6547'
+yellow  = '#8b7653'
+blue    = '#556b79'
+magenta = '#6e4962'
+cyan    = '#5c8482'
+white   = '#828282'

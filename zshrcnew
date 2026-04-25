@@ -5,6 +5,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+if command -v tmux &>/dev/null && [[ -z "$TMUX" ]]; then
+    tmux attach -t default 2>/dev/null || tmux new-session -s default
+fi
+
 autoload -Uz compinit
 compinit
 
@@ -30,7 +34,10 @@ if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
 # Enables powerlevel10k
-source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
+case "$(uname)" in
+    Darwin) source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme ;;
+    Linux) source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme ;;
+esac
 
 if [[ -d "$HOME/Projects/work" ]]; then
     export WORKDIR="$HOME/Projects/work"
@@ -39,10 +46,14 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-eval $(thefuck --alias fuck fk)
+if command -v thefuck &> /dev/null; then
+    eval $(thefuck --alias fuck fk)
+fi
 
 eval "$(fzf --zsh)"
 
-eval "$(mise activate zsh)"
+if command -v mise &> /dev/null; then
+    eval "$(mise activate zsh)"
+fi
 
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"

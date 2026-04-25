@@ -6,4 +6,7 @@
 	url = https://github.com/tmux-plugins/tpm
 [submodule "iterm"]
 	path = iterm
-	url = git@github.com:catppuccin/iterm.git
+	url = https://github.com/catppuccin/iterm
+[submodule "config/alacritty/themes"]
+	path = config/alacritty/themes
+	url = https://github.com/alacritty/alacritty-theme
