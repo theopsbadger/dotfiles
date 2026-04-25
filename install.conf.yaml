@@ -5,13 +5,12 @@
 
 - clean: ['~']
 
-- shell:
-  - [git submodule update --init --recursive, Initializing git submodules]
-  - [mkdir -p ~/Projects, Setting up Project directory]
-  - mkdir -p ~/Projects/work
-  - mkdir -p ~/Projects/personal
-  - mkdir -p ~/.tmux/plugins 
-  - mkdir -p ~/.claude
+- create:
+  - ~/Projects
+  - ~/Projects/work
+  - ~/Projects/personal
+  - ~/.tmux/plugins
+  - ~/.claude
 
 - link:
   #  ~/.vimrc: vimrc

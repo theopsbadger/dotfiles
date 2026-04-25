@@ -8,9 +8,14 @@ list_themes() {
     ls "$THEMES_DIR" | sed 's/\.toml$//'
 }
 
-if [[ $# -eq 0 || "${1:-}" == "--list" || "${1:-}" == "-l" ]]; then
+if [[ "${1:-}" == "--list" || "${1:-}" == "-l" ]]; then
     list_themes
     exit 0
+fi
+
+if [[ $# -eq 0 ]]; then
+    THEME=$(list_themes | fzf --prompt="theme: ") || exit 0
+    set -- "$THEME"
 fi
 
 THEME="$1"
@@ -22,5 +27,6 @@ if [[ ! -f "$THEME_FILE" ]]; then
     exit 1
 fi
 
-ln -sf "$THEME_FILE" "$CURRENT_THEME"
+cp "$THEME_FILE" "$CURRENT_THEME"
+touch "$HOME/.config/alacritty/alacritty.toml"
 echo "Switched to: $THEME"
