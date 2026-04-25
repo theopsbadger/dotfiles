@@ -2,7 +2,7 @@
 set -euo pipefail
 
 THEMES_DIR="$HOME/.config/alacritty/themes/themes"
-CONFIG="$HOME/.config/alacritty/alacritty.toml"
+CURRENT_THEME="$HOME/.config/alacritty/current-theme.toml"
 
 list_themes() {
     ls "$THEMES_DIR" | sed 's/\.toml$//'
@@ -22,15 +22,5 @@ if [[ ! -f "$THEME_FILE" ]]; then
     exit 1
 fi
 
-tmpfile=$(mktemp)
-awk '
-/^\[colors/ { in_colors=1 }
-/^\[/ && !/^\[colors/ { in_colors=0 }
-!in_colors { print }
-' "$CONFIG" | sed 's/[[:space:]]*$//' > "$tmpfile"
-
-printf '\n' >> "$tmpfile"
-cat "$THEME_FILE" >> "$tmpfile"
-
-mv "$tmpfile" "$CONFIG"
+ln -sf "$THEME_FILE" "$CURRENT_THEME"
 echo "Switched to: $THEME"

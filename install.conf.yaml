@@ -24,4 +24,4 @@
     ~/.tmux/plugins/tpm: tpm
     ~/.zshrc: zshrcnew
     ~/.claude/settings.json: claude/settings.json
-    ~/.local/bin: bin
+    ~/.local/bin/alacritty-theme: bin/alacritty-theme
